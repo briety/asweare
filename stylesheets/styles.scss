@@ -1,0 +1,167 @@
+
+
+// ----------------------------------------------------------------------------------------------------
+// VARIABLES
+// ----------------------------------------------------------------------------------------------------
+
+
+
+// ----------------------------------------------------------------------------------------------------
+// MIXINS
+// ----------------------------------------------------------------------------------------------------
+
+// VERT ALIGN MIDDLE
+@mixin vert-center-element($spacing: -.35em, $outer-height: 100%, $inner-width: 100%){
+  text-align: center;
+
+// ghost element; shifts element to center, -.25em works in the browser but not on iPad
+  &:before {
+    content: '';
+    display: inline-block;
+    height: $outer-height;
+    vertical-align: middle;
+    margin-right: $spacing;
+  }
+
+// The element to be centered, can be of any width and height
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+    width: $inner-width;
+  }
+}
+
+
+
+// ----------------------------------------------------------------------------------------------------
+// GENERAL STYLING
+// ----------------------------------------------------------------------------------------------------
+
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 14px "Helvetica Neue", Helvetica, arial, sans-serif;
+  text-align: center;
+}
+
+dl {
+  text-align: left;
+
+  dt, dd {
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+
+  dt {
+    clear: left;
+    font-weight: bold;
+    padding-right: 8px;
+    width: 25%;
+
+    &::after {
+      content: ":";
+    }
+  }
+
+  dd {
+    width: 75%;
+  }
+}
+
+
+.blur {
+  background: url("../images/textured_paper/textured_paper.png");
+  background-size: cover;
+  content: "";
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  z-index: -1; /* Keep the background behind the content */
+  -webkit-filter: blur(3px);
+}
+
+.overlay {
+  @include vert-center-element();
+  background-color: rgba(0, 0, 0, 0.25);
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.card {
+  background-image: url("../images/textured_paper/textured_paper.png");
+  border: 5px solid #000;
+  box-shadow: 0 0 20px rgba(0,0,0,.5);
+  height: 384px;
+  margin: 32px auto;
+  overflow: hidden;
+  width: 512px;
+  z-index: 50;
+
+
+}
+
+.panel {
+  float: left;
+  height: 100%;
+  width: 50%;
+
+  &:first-child {
+    border-right: 2px solid rgba(0,0,0,.4);
+  }
+
+  &:last-child {
+    @include vert-center-element();
+    border-left: 2px solid rgba(255,255,255,.5);
+  }
+
+  > div {
+    padding: 2.5%;
+  }
+
+  p {
+    text-align: left;
+  }
+}
+
+
+.profile {
+  background: url("../images/bri-suffety.png") no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  h1 {
+    margin: 0;
+    position: absolute;
+      bottom: 3%;
+    text-shadow: 0 0 23px #FFF;
+    text-transform: uppercase;
+    width: 100%;
+  }
+}
+
+
+
+// ----------------------------------------------------------------------------------------------------
+// MEDIA QUERIES
+// ----------------------------------------------------------------------------------------------------
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+  .blur {
+    background-image: url("../images/textured_paper/textured_paper_@2X.png");
+  }
+
+}
