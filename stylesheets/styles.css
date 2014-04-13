@@ -1,108 +1,201 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 body {
-  font: normal 14px "Helvetica Neue", Helvetica, arial, sans-serif;
+  background: url("../images/textured_paper/blurred-textured_paper.png");
+  font: 400 14px 'Open Sans', Helvetica, arial, sans-serif;
   text-align: center; }
 
+abbr {
+  cursor: help; }
+
 dl {
+  font-size: 12px;
   text-align: left; }
   dl dt, dl dd {
-    float: left;
-    margin: 0;
-    padding: 0; }
+    float: left; }
   dl dt {
     clear: left;
-    font-weight: bold;
+    font-weight: 700;
+    margin-top: 6px;
     padding-right: 8px;
-    width: 25%; }
+    width: 28%; }
     dl dt::after {
       content: ":"; }
+    dl dt + dd {
+      margin-top: 6px; }
   dl dd {
-    width: 75%; }
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+    padding-left: 6px;
+    width: 72%; }
 
-.blur {
-  background: url("../images/textured_paper/textured_paper.png");
-  background-size: cover;
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  /* Keep the background behind the content */
-  -webkit-filter: blur(3px); }
+p + p {
+  margin: .5em 0; }
 
-.overlay {
+.italic {
+  font-style: italic; }
+
+#page-wrap {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.25);
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0; }
-  .overlay:before {
+  #page-wrap:before {
     content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle;
     margin-right: -0.35em; }
-  .overlay > * {
+  #page-wrap > * {
     display: inline-block;
     vertical-align: middle;
     width: 100%; }
+  #page-wrap td:first-child .thumb {
+    margin-left: 125px; }
+  #page-wrap td:last-child .thumb {
+    margin-right: 125px; }
+  #page-wrap h1 {
+    font-size: 2.5em;
+    line-height: 1em;
+    margin: 0 0 0.25em 0;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5); }
 
-.card {
-  background-image: url("../images/textured_paper/textured_paper.png");
-  border: 5px solid #000;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  height: 384px;
-  margin: 32px auto;
-  overflow: hidden;
-  width: 512px;
-  z-index: 50; }
+.abilities {
+  margin-bottom: 2em; }
 
-.panel {
-  float: left;
-  height: 100%;
-  width: 50%; }
-  .panel:first-child {
-    border-right: 2px solid rgba(0, 0, 0, 0.4); }
-  .panel:last-child {
-    text-align: center;
-    border-left: 2px solid rgba(255, 255, 255, 0.5); }
-    .panel:last-child:before {
-      content: '';
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-      margin-right: -0.35em; }
-    .panel:last-child > * {
-      display: inline-block;
-      vertical-align: middle;
-      width: 100%; }
-  .panel > div {
-    padding: 2.5%; }
-  .panel p {
-    text-align: left; }
-
-.profile {
-  background: url("../images/bri-suffety.png") no-repeat;
-  background-size: cover;
-  height: 100%;
+.thumb {
+  height: 478px;
+  margin: 0 0 0 150px;
   position: relative;
-  width: 100%; }
-  .profile h1 {
-    margin: 0;
+  width: 320px; }
+  .thumb .img-wrap {
+    background: url("../images/textured_paper/textured_paper.png");
+    display: block;
+    height: 100%;
     position: absolute;
-    bottom: 3%;
-    text-shadow: 0 0 23px #FFF;
-    text-transform: uppercase;
+    width: 100%; }
+    .thumb .img-wrap img {
+      width: 100%; }
+  .thumb .thumb-detail {
+    background: url("../images/card-back.png");
+    background-size: 100%;
+    display: block;
+    height: 100%;
+    padding: 5%;
+    position: absolute;
+    text-align: left;
     width: 100%; }
 
+.thumb-wrapper {
+  border: 2px solid #000;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.75); }
+
+/*
+* Without CSS3
+*/
+.thumb.scroll {
+  overflow: hidden; }
+
+.thumb.scroll .thumb-detail {
+  bottom: -280px; }
+
+/*
+* CSS3 Flip
+*/
+.thumb.flip {
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -ms-perspective: 800px;
+  -o-perspective: 800px;
+  perspective: 800px; }
+  .thumb.flip .thumb-wrapper {
+    -webkit-transition: -webkit-transform 1.5s;
+    -moz-transition: -moz-transform 1.5s;
+    -ms-transition: -moz-transform 1.5s;
+    -o-transition: -moz-transform 1.5s;
+    transition: -moz-transform 1.5s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
+  .thumb.flip .thumb-detail {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg); }
+  .thumb.flip .img-wrap,
+  .thumb.flip .thumb-detail {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden; }
+  .thumb.flip .flipIt {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg); }
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .blur {
-    background-image: url("../images/textured_paper/textured_paper_@2X.png"); } }
+  body {
+    background: url("../images/textured_paper/blurred-textured_paper_@2X.png"); } }
