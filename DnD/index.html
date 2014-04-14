@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Mad Warlock</title>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="scripts/jquery.1.7.1.min.js"></script>
+        <!-- card flip -->
+        <script type="text/javascript" src="scripts/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="scripts/modernizr.2.5.3.min.js"></script>
+
+        <!-- scroll horizontal -->
+        <script type="text/javascript" src="scripts/jquery-mousewheel-master/jquery.mousewheel.min.js"></script>
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+
+
+    <!-- Stylesheet -->
+    <link href="stylesheets/styles.css" rel="stylesheet">
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+<h1 class="page-title">Super Heros in Our Own Right</h1>
+
+
+<div id="page-wrap">
+
+
+    <!-- Start Bri Suffety -->
+    <div class="thumb scroll ">
+        <div class="thumb-wrapper">
+
+            <div class="img-wrap">
+                <img class="flip" src="../asweare/images/textured_paper/textured_paper.png" alt="" />
+            </div>
+
+            <div class="thumb-detail">
+
+                <h1>NAME</h1>
+                <p>Lorem ipsum dolor sit</p>
+
+                <dl class="stats">
+
+                    <dt class="race">Race</dt>
+                    <dd>Night Elf</dd>
+
+                    <dt class="class">Class</dt>
+                    <dd>Druid</dd>
+
+                    <dt class="focus">Level</dt>
+                    <dd>#</dd>
+
+                    <dt class="abilities">Abilities</dt>
+                    <dd>X</dd>
+                    <dd>Y</dd>
+                    <dd>Z</dd>
+
+                    <dt>Weakness</dt>
+                    <dd>Coffee Deprivation</dd>
+
+                    <dt class="motto">Motto</dt>
+                    <dd class="italic">Fear Not. Dream Big.</dd>
+
+                    <dt class="dyk">Did You Know?</dt>
+                    <dd>Despite having a fear of heights, she jumped off the Stratosphere.</dd>
+                </dl>
+
+            </div>
+        </div>
+    </div><!-- end Bri Suffety -->
+
+
+    <!-- Start Lindz -->
+    <div class="thumb scroll ">
+        <div class="thumb-wrapper">
+
+            <div class="img-wrap">
+                <img class="flip" src="../asweare/images/textured_paper/textured_paper.png" alt="" />
+            </div>
+
+            <div class="thumb-detail">
+
+                <h1>NAME</h1>
+                <p>Lindsey Neby</p>
+
+                <dl class="stats">
+
+                    <dt class="race">Race</dt>
+                    <dd>LOREM</dd>
+
+                    <dt class="class">Class</dt>
+                    <dd>Mage</dd>
+
+                    <dt class="focus">Level</dt>
+                    <dd>X</dd>
+
+                    <dt class="abilities">Abilities</dt>
+                    <dd>X</dd>
+                    <dd>Y</dd>
+                    <dd>Z</dd>
+
+                    <dt>Weakness</dt>
+                    <dd>?</dd>
+
+                    <dt class="motto">Motto</dt>
+                    <dd class="italic"X</dd>
+
+                    <dt class="dyk">Did You Know?</dt>
+                    <dd>X</dd>
+                </dl>
+
+            </div>
+        </div>
+    </div><!-- end Bri Suffety -->
+
+</div><!-- / #page-wrap -->
+
+
+<script type="text/javascript">
+    $(function () {
+
+        // CARD FLIP
+        if ($('html').hasClass('csstransforms3d')) {
+
+            $('.thumb').removeClass('scroll').addClass('flip');
+            $('.thumb.flip').hover(
+                    function () {
+                        $(this).find('.thumb-wrapper').addClass('flipIt');
+                    },
+                    function () {
+                        $(this).find('.thumb-wrapper').removeClass('flipIt');
+                    }
+            );
+
+        } else {
+
+            $('.thumb').hover(
+                    function () {
+                        $(this).find('.thumb-detail').stop().animate({bottom:0}, 500, 'easeOutCubic');
+                    },
+                    function () {
+                        $(this).find('.thumb-detail').stop().animate({bottom: ($(this).height() * -1) }, 500, 'easeOutCubic');
+                    }
+            );
+
+        }
+
+
+        // HORIZONTAL SCROLL
+        $("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
+        $(".thumb").wrap("<td></td>");
+        $("body").mousewheel(function(event, delta) {
+            this.scrollLeft -= (delta * 30);
+            event.preventDefault();
+        });
+
+    });
+</script>
+
+</body>
+</html>
